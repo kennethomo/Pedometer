@@ -1,7 +1,7 @@
 package com.example.pedometer;
 
 public class GetSet {
-    private int numSteps = 0;
+    private int numSteps;
 
     public int getStep(){
         return numSteps;

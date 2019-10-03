@@ -1,6 +1,7 @@
 package com.example.pedometer;
 
 import android.content.Context;
+import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -20,6 +21,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     private Sensor accel;
     private static final String TEXT_NUM_STEPS = "Number of Steps: ";
     private int numSteps;
+    GetSet stepGetSet = new GetSet();
 
     private TextView TvSteps;
 
@@ -44,13 +46,15 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         BtnStart = (Button) findViewById(R.id.btn_start);
         BtnStop = (Button) findViewById(R.id.btn_stop);
 
+        View = (Button) findViewById(R.id.viewXP);
+
 
 
         BtnStart.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View arg0) {
-
+                stepGetSet.setStep(0);//added
                 numSteps = 0;
                 sensorManager.registerListener(MainActivity.this, accel, SensorManager.SENSOR_DELAY_FASTEST);
 
@@ -68,8 +72,22 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             }
         });
 
+        View.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openViewXp();
+            }
+        });
 
 
+
+
+
+    }
+
+    public void openViewXp(){
+        Intent intent = new Intent(this, Activity2.class);
+        startActivity(intent);
     }
 
 
@@ -90,5 +108,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     public void step(long timeNs) {
         numSteps++;
         TvSteps.setText(TEXT_NUM_STEPS + numSteps);
+        numSteps = stepGetSet.getStep();//added
     }
 }
