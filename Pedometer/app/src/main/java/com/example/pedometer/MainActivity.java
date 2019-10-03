@@ -21,7 +21,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     private Sensor accel;
     private static final String TEXT_NUM_STEPS = "Number of Steps: ";
     private int numSteps;
-    GetSet stepGetSet = new GetSet();
 
     private TextView TvSteps;
 
@@ -54,7 +53,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
             @Override
             public void onClick(View arg0) {
-                stepGetSet.setStep(0);//added
+                //stepGetSet.setStep(0);//added
                 numSteps = 0;
                 sensorManager.registerListener(MainActivity.this, accel, SensorManager.SENSOR_DELAY_FASTEST);
 
@@ -67,6 +66,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             @Override
             public void onClick(View arg0) {
 
+                TvSteps.setText(TEXT_NUM_STEPS + 0);//added
                 sensorManager.unregisterListener(MainActivity.this);
 
             }
@@ -75,6 +75,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         View.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 openViewXp();
             }
         });
@@ -87,6 +88,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
     public void openViewXp(){
         Intent intent = new Intent(this, Activity2.class);
+        intent.putExtra("Xp", numSteps);
         startActivity(intent);
     }
 
@@ -108,6 +110,5 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     public void step(long timeNs) {
         numSteps++;
         TvSteps.setText(TEXT_NUM_STEPS + numSteps);
-        numSteps = stepGetSet.getStep();//added
     }
 }
