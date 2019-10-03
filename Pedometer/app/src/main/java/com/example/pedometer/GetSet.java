@@ -7,7 +7,7 @@ public class GetSet {
         return numSteps;
     }
 
-    public int setStep(int newStep){
-        this.newStep = numSteps;
+    public void setStep(int newStep){
+        this.numSteps = newStep;
     }
 }
