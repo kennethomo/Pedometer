@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
     private Button BtnStart;
     private Button BtnStop;
+    private Button View;
 
 
     @Override
