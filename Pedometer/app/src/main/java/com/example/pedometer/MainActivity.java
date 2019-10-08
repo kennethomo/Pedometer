@@ -15,13 +15,11 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements SensorEventListener, StepListener {
 
-    private TextView textView;
     private StepDetector simpleStepDetector;
     private SensorManager sensorManager;
     private Sensor accel;
     private static final String TEXT_NUM_STEPS = "Number of Steps: ";
     private int numSteps;
-    private int taco;
 
     private TextView TvSteps;
 
@@ -29,21 +27,12 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     private Button BtnStop;
     private Button View;
 
-    public int getSteps() {
-        return taco;
-    }
-
-    public void setSteps(int taco){
-        this.taco=taco;
-    }
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        setSteps(100);
 
         // Get an instance of the SensorManager
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);

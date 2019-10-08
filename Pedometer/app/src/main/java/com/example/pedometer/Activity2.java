@@ -20,11 +20,6 @@ public class Activity2 extends AppCompatActivity {
         textView = (TextView) findViewById(R.id.TextXp);
         double XP = getIntent().getIntExtra("Xp",0);
 
-
-        MainActivity mainActivity = new MainActivity();
-
-        int num = mainActivity.getSteps();
-
         XP = XP / 2;
 
 
