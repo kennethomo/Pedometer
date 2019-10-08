@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     private Sensor accel;
     private static final String TEXT_NUM_STEPS = "Number of Steps: ";
     private int numSteps;
+    private int taco;
 
     private TextView TvSteps;
 
@@ -29,7 +30,11 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     private Button View;
 
     public int getSteps() {
-        return numSteps;
+        return taco;
+    }
+
+    public void setSteps(int taco){
+        this.taco=taco;
     }
 
 
@@ -38,6 +43,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        setSteps(100);
 
         // Get an instance of the SensorManager
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);

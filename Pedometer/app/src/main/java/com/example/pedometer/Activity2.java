@@ -8,7 +8,7 @@ public class Activity2 extends AppCompatActivity {
 
     private TextView textView;
     private static final String TEXT_NUM_STEPS1 = "Current XP = ";
-    GetSet taco = new GetSet();
+
 
 
 
@@ -19,6 +19,11 @@ public class Activity2 extends AppCompatActivity {
 
         textView = (TextView) findViewById(R.id.TextXp);
         double XP = getIntent().getIntExtra("Xp",0);
+
+
+        MainActivity mainActivity = new MainActivity();
+
+        int num = mainActivity.getSteps();
 
         XP = XP / 2;
 
